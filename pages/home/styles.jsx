@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: 300,
-    height: 300,
+    width: 390,
+    height: 600,
   },
   marker: {
     backgroundColor: 'yellow',

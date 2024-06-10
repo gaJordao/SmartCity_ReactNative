@@ -3,15 +3,18 @@ import { Text, View, Dimensions, ImageBackground } from 'react-native';
 import * as Location from 'expo-location';
 import styles from './styles';
 import senai from '../../assets/senai.png';
+import axios from 'axios';
 
 const { width, height } = Dimensions.get('window');
 
+const getSensores = axios.get('https://gabrielfaiska.pythonanywhere.com/api/sensores/')
+
 // Defina bounds globalmente para que esteja disponível em todo o componente
 const bounds = {
-  northWest: { latitude: -22.913949, longitude: -47.068695 },
-  northEast: { latitude: -22.913868, longitude: -47.068068 },
-  southWest: { latitude: -22.914414, longitude: -47.068620 },
-  southEast: { latitude: -22.914393, longitude: -47.068046 },
+  northWest: { latitude: -22.913962 , longitude: -47.068029},
+  northEast: { latitude: -22.914148, longitude: -47.068681},
+  southWest: { latitude: -22.914843, longitude: -47.067727},
+  southEast: { latitude: -22.915039, longitude: -47.068401},
 };
 
 export default function Home() {
@@ -19,6 +22,8 @@ export default function Home() {
   const [errorMsg, setErrorMsg] = useState(null);
   const [distance1, setDistance1] = useState(null);
   const [distance2, setDistance2] = useState(null);
+
+
 
   const fixedPoints = [
     {
@@ -28,13 +33,13 @@ export default function Home() {
       longitude: -47.068242,
       localizacao: "A106-Laboratório de Informática ",
       responsavel: "Isabela - Murilo - Emmanuele - Kamila - Maria Luiza",
-      temperature: 25, // Temperatura fictícia
+      temperature: 25, 
       unit: '°C',
     },
     {
       latitude: -22.9142085,
       longitude: -47.0683711,
-      temperature: 28, // Temperatura fictícia
+      temperature: 28,
       unit: '°C',
     },
   ];
